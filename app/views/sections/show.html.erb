@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Show:</strong>
+  <%= @section.show %>
+</p>
+
+<p>
+  <strong>New:</strong>
+  <%= @section.new %>
+</p>
+
+<p>
+  <strong>Edit:</strong>
+  <%= @section.edit %>
+</p>
+
+<p>
+  <strong>Delete:</strong>
+  <%= @section.delete %>
+</p>
+
+<%= link_to 'Edit', edit_section_path(@section) %> |
+<%= link_to 'Back', sections_path %>

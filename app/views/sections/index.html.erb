@@ -1,0 +1,32 @@
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %><br />
+  </div>
+<% end %>
+
+<body style="font-family:Arial; width:100%; background:linear-gradient(white,lightblue)">
+<h1>Sections</h1>
+<p><%= link_to('Add New Section', new_section_path, :class => 'action new') %></p>
+<table class="listing" summary="Page list">
+  <tr class="header">
+    <th>#</th>
+    <th>Section Name</th>
+    <th>Visible</th>
+    <th>Sections</th>
+    <th>Actions</th>
+  </tr>
+  <% @sections.each do |section| %>
+    <tr>
+      <td><%= section.position %></td>
+      <td><%= section.name %></td>
+      <td class="center"><%= section.visible ? 'Yes' : 'No' %></td>
+      <td class="center">TBD</td>
+      <td class="actions">
+        <%= link_to('Show', section_path(section), :class => 'action show') %>
+        <%= link_to('Edit', edit_section_path(section), :class => 'action edit') %>
+        <%= link_to('Delete', delete_section_path(section), :class => 'action delete') %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</body>

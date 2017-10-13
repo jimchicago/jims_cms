@@ -15,6 +15,7 @@
       <td><%= subject.name %></td>
       <td class="center"><%= subject.visible ? 'Yes' : 'No' %></td>
       <td class="center">1 or more&nbsp;</td>
+      <td class="center">TBD<!--%= subject.size %--></td>
       <td class="actions">
         <%= link_to('Show', subject_path(subject), :class => 'action show') %>
         <%= link_to('Edit', edit_subject_path(subject), :class => 'action edit') %>
