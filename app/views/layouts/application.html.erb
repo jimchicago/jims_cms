@@ -1,14 +1,20 @@
 <!DOCTYPE html>
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+    <%= flash[:notice] %><br />
+  </div>
+<% end %>
+
 <html>
   <head>
-    <title>JimsCms</title>
+    <title>Jim's CMS</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="font-family:Arial; width:100%; background:linear-gradient(white,lightblue)">
     <%= yield %>
   </body>
 </html>

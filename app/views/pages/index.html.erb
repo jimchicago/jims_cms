@@ -1,13 +1,9 @@
-<% if !flash[:notice].blank? %>
-  <div class="notice">
-    <%= flash[:notice] %><br />
-  </div>
-<% end %>
+<% @page_title = "All Pages" %>
 
-<body style="font-family:Arial; width:100%; background:linear-gradient(white,lightblue)">
+<%= link_to("<< Back to Subjects", subjects_path, :class => 'back-link') %>
 
 <h1>Pages</h1>
-<p><%= link_to('Add New Page', new_page_path, :class => 'action new') %></p>
+<p><%= link_to("Add New Page", new_page_path(:subject_id => @subject.id), :class => 'action new') %></p>
 
 <table class="listing" summary="Page list">
   <tr class="header">
@@ -26,11 +22,11 @@
       <td><%= page.name %></td>
       <td><%= page.permalink %></td>
       <td class="center"><%= page.visible ? 'Yes' : 'No' %></td>
-      <td class="center">TBD<!-- %= page.sections.size % --></td>
+      <td class="center"><%= page.sections.size %></td>
       <td class="actions">
-        <%= link_to('Show', page_path(page), :class => 'action show') %>
-        <%= link_to('Edit', edit_page_path(page), :class => 'action edit') %>
-        <%= link_to('Delete', delete_page_path(page), :class => 'action delete') %>
+        <%= link_to('Show', page_path(page, :subject_id => @subject.id), :class => 'action show') %>
+        <%= link_to('Edit', edit_page_path(page, :subject_id => @subject.id), :class => 'action edit') %>
+        <%= link_to('Delete', delete_page_path(page, :subject_id => @subject.id), :class => 'action delete') %>
       </td>
     </tr>
   <% end %>

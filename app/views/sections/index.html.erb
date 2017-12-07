@@ -1,23 +1,21 @@
-<% if !flash[:notice].blank? %>
-  <div class="notice">
-    <%= flash[:notice] %><br />
-  </div>
-<% end %>
+<% @page_title = "All Sections" %>
 
-<body style="font-family:Arial; width:100%; background:linear-gradient(white,lightblue)">
+<%= link_to("<< Back to Menu", admin_path, :class => 'back-link') %>
+
 <h1>Sections</h1>
 <p><%= link_to('Add New Section', new_section_path, :class => 'action new') %></p>
-<table class="listing" summary="Page list">
+<table class="listing" summary="Section list">
   <tr class="header">
     <th>#</th>
+    <th>Page ID</th>
     <th>Section Name</th>
     <th>Visible</th>
-    <th>Sections</th>
     <th>Actions</th>
   </tr>
   <% @sections.each do |section| %>
     <tr>
       <td><%= section.position %></td>
+      <td><%= section.page_id %></td>
       <td><%= section.name %></td>
       <td class="center"><%= section.visible ? 'Yes' : 'No' %></td>
       <td class="center">TBD</td>

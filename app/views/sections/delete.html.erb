@@ -1,0 +1,24 @@
+<body style="font-family:Arial">
+
+<%= link_to("<< Back to List", sections_path, :class => 'back-link') %>
+
+<div class="sections delete">
+  <h2>Delete a Section</h2>
+
+<!-- In the line below, must specify that the method is delete -->
+  <%= form_for(@section, :method => 'delete') do |f| %>
+
+    <p>Are you SURE you want to permanently delete this section?</p>
+    
+<!-- In the line below, you could use @subject.name instead of f.object -->
+    <p class="reference-name"><%= f.object.name %></p>
+
+    <div class="form-buttons">
+      <%= f.submit("Delete Section") %>
+    </div>
+
+  <% end %>
+</div>
+
+</body>
+

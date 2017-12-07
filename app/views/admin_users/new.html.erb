@@ -1,0 +1,21 @@
+<% @page_title = "New Admin User" %>
+
+<body style="font-family:Arial">
+
+<%= link_to("<< Back to List", admin_users_path, :class => 'back-link') %>
+
+<div class="admin-users new">
+  <h2>Create an Admin User</h2>
+
+  <%= form_for(@admin_user) do |f| %>
+    
+    <%= render(:partial => 'admin_userform', :locals => {:f => f}) %>
+  
+  <div class="form-buttons">
+    <%= f.submit("Create Admin User") %>
+  </div>
+
+  <% end %>
+</div>
+
+</body>

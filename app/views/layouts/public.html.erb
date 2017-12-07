@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jim's CMS: <%= " | #{@page_title}" if @page_title %></title>
+    <%= stylesheet_link_tag('admin', :media => 'all') %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body style="margin:0 0 0 16px; font-family:Arial; width:100%; background:linear-gradient(white,azure)">
+
+    <div id="header">
+      <h3>Jim's Simple CMS</h3>
+    </div>
+
+    <div id="main">
+
+      <div id="navigation">
+        <%= render(:partial => 'layouts/navigation', :locals => { :subjects => @subjects} ) %>
+      </div>
+
+      <div id="content">
+        <%= yield %>
+        <img style="margin-top:30px" src="https://www.theedesign.com/cms/wp-content/uploads/2015/01/reasons-to-use-a-content-management-system.png">
+      </div>
+      <div class="clear"></div> 
+      
+    </div>
+
+    <div id="footer">
+      <p id="copyright" style="font-size:80%">&copy; JH Web Marketing Inc.</p>
+    </div>
+
+   
+  </body>
+</html>
+
